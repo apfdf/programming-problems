@@ -17,11 +17,11 @@ ll dp(int i, vector<station>& stations, vector<ll>& mem) {
         return mem[i];
     }
 
-    if (i + stations[i].d >= stations.size() || stations[i].d == 0) {
+    if (stations[i].d == 0) {
         return 1;
     }
 
-    ll s = 0;
+    ll s = 1;
     for (int t = 1; t <= stations[i].x; t++) {
         if (i + t*stations[i].d >= stations.size()) {
             break;
