@@ -24,19 +24,17 @@ int main() {
     
     // om inga berg helt överlappa andra borde det kunna hanteras som att berg bara överlappar med intilliggande: O(NlogN)?
 
-    float area = 0.0f;
+    double area = 0.0f;
 
     int p1 = -1;
     int p2 = 0;
     while (p2 < N) {
 
-        area += (float)((intervals[p2].second - intervals[p2].first)*(intervals[p2].second - intervals[p2].first)) / 4;
+        area += (double)((intervals[p2].second - intervals[p2].first)*(intervals[p2].second - intervals[p2].first)) / 4;
 
         if (p1 != -1) {
-            cout << "test" << endl;
             if (intervals[p2].first < intervals[p1].second) {
-                cout << "* " << p1 << endl;
-                area -= (float)((intervals[p1].second - intervals[p2].first)*(intervals[p1].second - intervals[p2].first)) / 4;
+                area -= (double)((intervals[p1].second - intervals[p2].first)*(intervals[p1].second - intervals[p2].first)) / 4;
             }
         }
 
